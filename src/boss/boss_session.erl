@@ -13,7 +13,7 @@ start() ->
     SessionOptions  = make_session_options(),
     SessionDriver   = boss_env:session_adapter(),
     Adapter         = list_to_atom(lists:concat(["boss_session_adapter_", SessionDriver])),
-    Adapter:init([]),
+    Adapter:init(SessionOptions),
     SessionOptions1 = [{adapter, Adapter}|SessionOptions],
     start(SessionOptions1).
 
